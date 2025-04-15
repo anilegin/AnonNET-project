@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="AnonNET: A Unified Framework for Expression Consistent Anonymization in Talking Head Videos">
+  <meta name="keywords" content="AnonNET,Video Anonymization, Talking Head Videos, Expression Consistent Anonymization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Now You See Me, Now You Don't: A Unified Framework for Expression Consistent Anonymization in Talking Head Videos</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .results-carousel {
+      padding: 0;
+      width: 100%;
+    }
+
+    .results-carousel .item {
+      margin: 0;
+      padding: 20px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .results-carousel video {
+      width: 90vw;  /* Use viewport width */
+      max-height: 80vh;  /* Use viewport height */
+      object-fit: contain; /* Show entire video without cropping */
+      background: #f5f5f5;
+    }
+
+    .results-carousel .subtitle {
+      margin-top: 15px;
+    }
+
+    .hero.is-light {
+      background-color: #f5f5f5;
+      padding: 2rem 0;
+    }
+
+    .container {
+      max-width: 100% !important;
+      width: 100%;
+      padding: 0;
+    }
+
+    .video-labels {
+      text-align: center;
+      margin-bottom: 15px;
+      font-weight: bold;
+      color: #363636;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://anilegin.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Now You See Me, Now You Don't: A Unified Framework for Expression Consistent Anonymization in Talking Head Videos</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://anilegin.com">Anil Egin</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.andreatangherloni.com">Andrea Tangherloni</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://www-sop.inria.fr/members/Antitza.Dantcheva/">Antitza Dantcheva</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Inria Méditerranée,</span>
+            <span class="author-block">
+              Bocconi University</span>
+          </div>
+
+          <div class="columns is-centered">
+            <div class="column is-narrow">
+              <img src="./static/images/inria-logo.png" alt="INRIA Logo" style="height: 50px;">
+            </div>
+            <div class="column is-narrow">
+              <img src="./static/images/bocconi-logo.png" alt="Bocconi University Logo" style="height: 50px;">
+            </div>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+              </span>
+              <!-- BibTeX Link. -->
+              <span class="link-block">
+                <a href="#BibTeX"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-quote-right"></i>
+                  </span>
+                  <span>BibTeX</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div style="text-align: center;">
+        <img src="./static/images/pipeline.png" alt="AnonNET Pipeline" style="width: 75%; margin: auto;">
+      </div>
+      <h2 class="subtitle has-text-centered">
+        AnonNET: A unified framework for expression consistent anonymization in talking head videos.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="video-labels">
+        Original | Source | Anonymized
+      </div>
+      <div id="results-carousel" class="carousel results-carousel">
+        <!-- Result Video 1 -->
+        <div class="item">
+          <video poster="" id="result1" autoplay controls muted loop playsinline>
+            <source src="./static/videos/cathymcmorris.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 1</h2>
+        </div>
+        <!-- Result Video 2 -->
+        <div class="item">
+          <video poster="" id="result2" autoplay controls muted loop playsinline>
+            <source src="./static/videos/richardblue.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 2</h2>
+        </div>
+        <!-- Result Video 3 -->
+        <div class="item">
+          <video poster="" id="result3" autoplay controls muted loop playsinline>
+            <source src="./static/videos/mikethompson.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 3</h2>
+        </div>
+        <!-- Result Video 4 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/lynnjenkins.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 4</h2>
+        </div>
+        <!-- Result Video 5 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/woman_sample.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 5</h2>
+        </div>
+        <!-- Result Video 6 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/tom_cruise.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 6</h2>
+        </div>
+                  <!-- Result Video 7 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/sample7.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 7</h2>
+        </div>
+                  <!-- Result Video 8 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/sample8.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 8</h2>
+        </div>
+                  <!-- Result Video 9 -->
+        <div class="item">
+          <video poster="" id="result4" autoplay controls muted loop playsinline>
+            <source src="./static/videos/sample9.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">Example 9</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Face video anonymization is aimed at privacy preservation while allowing for the analysis of videos in a number of computer vision downstream tasks such as expression recognition, people tracking, and action recognition.
+          </p>
+          <p>
+            We propose here a novel unified framework referred to as <b>AnonNET</b>, streamlined to <b>de-identify a facial video</b>, while <b>preserving age, gender, race, pose, and expression</b> of the original video. 
+            Specifically, we inpaint faces by a diffusion-based generative model guided by high-level attribute recognition and motion-aware expression transfer. 
+            We then animate de-identified faces by video-driven animation, which accepts the de-identified face and the original video as input.
+          </p>
+          <p>
+            Extensive experiments on the datasets VoxCeleb2, CelebV-HQ, and HDTF, which include diverse facial dynamics, demonstrate the effectiveness of AnonNET in obfuscating identity while retaining visual realism and temporal consistency.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Image Anonymization -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-10">
+        <h2 class="title is-3">Image Anonymization</h2>
+        <div class="video-labels" style="margin-bottom: 30px;">
+          Original | Anonymized
+        </div>
+        
+        <!-- First Row -->
+        <div class="columns is-centered" style="margin-bottom: 30px;">
+          <!-- First Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/095010.jpg" alt="Original 1" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/095010_anon_0.617_32_White_woman_happy.png" alt="Anonymized 1" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Second Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/095079.jpg" alt="Original 2" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/095079_anon_0.773_33_White_man_happy.png" alt="Anonymized 2" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Third Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/095100.jpg" alt="Original 3" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/095100_anon_0.786_36_White_man_neutral.png" alt="Anonymized 3" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="columns is-centered" style="margin-bottom: 30px;">
+          <!-- Fourth Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/144711.jpg" alt="Original 4" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/144711_anon_0.628_26_White_woman_happy.png" alt="Anonymized 4" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Fifth Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/144771.jpg" alt="Original 5" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/144771_anon_0.536_32_White_woman_sad.png" alt="Anonymized 5" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Sixth Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/144835.jpg" alt="Original 6" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/144835_anon_0.607_25_White_woman_happy.png" alt="Anonymized 6" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Third Row -->
+        <div class="columns is-centered">
+          <!-- Seventh Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/LeBron_James_0005.jpg" alt="Original 7" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/LeBron_James_0005_anon_0.613_23_Black_man_happy.png" alt="Anonymized 7" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Eighth Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/Serena_Williams_0021.jpg" alt="Original 8" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/Serena_Williams_0021_anon_0.386_31_Black_woman_happy.png" alt="Anonymized 8" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Ninth Pair -->
+          <div class="column is-one-third">
+            <div class="box" style="padding: 15px; background-color: #f5f5f5;">
+              <div class="columns is-centered is-mobile">
+                <div class="column is-5">
+                  <img src="./static/images/JK_Rowling_0003.jpg" alt="Original 9" style="width: 100%;">
+                </div>
+                <div class="column is-5">
+                  <img src="./static/images/JK_Rowling_0003_anon_0.699_39_White_woman_happy.png" alt="Anonymized 9" style="width: 100%;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Image Anonymization -->
+
+    <!-- Related Links -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+        <div class="content has-text-justified">
+          <p>
+            Our work builds upon and extends several approaches in face animation and anonymization.
+          </p>
+          <p>
+            <a href="https://github.com/KwaiVGI/LivePortrait">LivePortrait</a> provides a robust framework for face animation that we utilize in our pipeline.
+          </p>
+          <p>
+            <a href="https://github.com/wyhsirius/LIA">LIA (Latent Image Animation)</a> offers an effective approach for image animation that we adapt for our anonymization framework.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Related Links -->
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="https://github.com/anilegin">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-link" href="https://anilegin.com">
+        <i class="fas fa-home"></i>
+      </a>
+      <a class="icon-link" href="mailto:anilegin@gmail.com">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Thanks for <a href="https://github.com/nerfies/nerfies.github.io">Nerfie</a> for release their project page code. We borrow their website code to construct this website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
